@@ -3,7 +3,7 @@ describe("Tower", function() {
   var position;
   beforeEach(function() {
     position = new Victor(0,0);
-    tower = new Tower(position, function(){console.log("FIRE!")});
+    tower = new TowerModel(position, 1);
 
   });
 

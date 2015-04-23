@@ -1,5 +1,6 @@
 
-function TowerModel(position){
+function TowerModel(position, id){
+  this.id = id
   this.element = "<div class='tower' src=''> </div>"
   this.position = position.clone();
   this.range = 10;
@@ -46,8 +47,8 @@ TowerModel.prototype = {
     return this.hp <= 0;
   },
 
-  generateTower: function(id){
-    var $div = $('<div class="tower"></div>').attr('id', "tower"+id);
+  generateTower: function(){
+    var $div = $('<div class="tower"></div>').attr('id', "tower"+this.id);
     $div.css("top", this.position.x);
     $div.css("left", this.position.y);
     return $div;
