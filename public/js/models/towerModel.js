@@ -1,6 +1,6 @@
 
-function Tower(position, createBulletFunction){
-  this.createBulletFunction = createBulletFunction;
+function TowerModel(position){
+  this.element = "<div class='tower' src=''> </div>"
   this.position = position.clone();
   this.range = 10;
   this.radius = 5;
@@ -16,7 +16,7 @@ function Tower(position, createBulletFunction){
     , this.fireRateMs);
 }
 
-Tower.prototype = {
+TowerModel.prototype = {
   isInRange: function(target){
     return this.rangeToTarget(target)  < this.range;
   },
@@ -26,7 +26,6 @@ Tower.prototype = {
   },
 
   chooseClosestTarget: function(targets){
-    //go through all the targets. If it's distance is smaller than this.closestTarget, update this.closest target.
     for(var i = 0; i < targets.length; i++) {
       var target = targets[i];
       if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
@@ -38,12 +37,20 @@ Tower.prototype = {
 
   fireAtTargetIfInRange: function(){
     if(this.isInRange(this.closestTarget)){
-      this.createBulletFunction(this.position, this.closestTarget);
+      new Bullet(this.position, this.closestTarget);
+
     }
   },
 
   isDead: function(){
     return this.hp <= 0;
+  },
+
+  generateTower: function(id){
+    var $div = $('<div class="tower"></div>').attr('id', "tower"+id);
+    $div.css("top", this.position.x);
+    $div.css("left", this.position.y);
+    return $div;
   }
 
 }

@@ -53,7 +53,4 @@ describe("Tower", function() {
     expect(tower.isDead()).toEqual(true);
   });
 
-
-
-
 });
