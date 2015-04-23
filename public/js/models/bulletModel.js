@@ -2,8 +2,8 @@
 
 function Bullet(towerPosition, direction) {
   this.size = 1;
-  this.position = towerPosition.clone();
-  this.direction = direction.clone();
+  this.position = towerPosition.clone().normalize();
+  this.direction = direction.clone().normalize();
   this.damage = 1;
 }
 
