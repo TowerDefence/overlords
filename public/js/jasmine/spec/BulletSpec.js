@@ -7,6 +7,7 @@ describe("Bullet", function() {
     towerPosition = new Victor(0,0).normalize();
     direction = new Victor(2,5).normalize();
     bullet = new Bullet(towerPosition,direction);
+    bullet.generateBullet();
   });
 
   it("should have a size", function() {
