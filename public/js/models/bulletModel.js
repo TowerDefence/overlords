@@ -3,7 +3,7 @@
 function Bullet(towerPosition, direction, id) {
   this.id = id;
   this.size = 1;
-  this.position = towerPosition.clone().normalize();
+  this.position = towerPosition.clone();
   this.direction = direction.clone().normalize();
   this.damage = 1;
   this.$div = {};
