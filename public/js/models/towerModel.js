@@ -1,8 +1,19 @@
 
-function Tower(position){
+function Tower(position, createBulletFunction){
+  this.createBulletFunction = createBulletFunction;
   this.position = position.clone();
   this.range = 10;
+  this.radius = 5;
+  this.fireRateMs = 1000;
   this.closestTarget = {position: new Victor(Infinity, Infinity)};
+
+
+  setInterval(
+    (function(self){
+      return function(){self.fireAtTargetIfInRange();}
+    })(this)
+
+    , this.fireRateMs);
 }
 
 Tower.prototype = {
@@ -23,9 +34,13 @@ Tower.prototype = {
       }
     }
     return this.closestTarget;
+  },
+
+  fireAtTargetIfInRange: function(){
+    if(this.isInRange(this.closestTarget)){
+      this.createBulletFunction(this.position, this.closestTarget);
+    }
   }
-
-
 
 }
 

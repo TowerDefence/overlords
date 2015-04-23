@@ -3,7 +3,7 @@ describe("Tower", function() {
   var position;
   beforeEach(function() {
     position = new Victor(0,0);
-    tower = new Tower(position);
+    tower = new Tower(position, function(){console.log("FIRE!")});
 
   });
 
@@ -41,8 +41,8 @@ describe("Tower", function() {
       tower.chooseClosestTarget(targets);
       console.log(tower.closestTarget);
 
-      expect(tower.closestTarget.position.x).toEqual(closest.x);
-      expect(tower.closestTarget.position.y).toEqual(closest.y);
+      expect(tower.closestTarget.position).toEqual(closest);
+
     });
 
 
