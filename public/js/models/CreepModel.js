@@ -1,6 +1,6 @@
 
-function Creep(){
-  this.position = new Victor(0,0);
+function Creep() {
+  this.position = new Victor(5,5);
   this.speed = new Victor(5,0);
   this.radius = 10;
   this.lives = 3;
@@ -17,8 +17,8 @@ Creep.prototype.getShot = function(damage) {
 }
 
 Creep.prototype.hasCollided = function(objectPos,objectRadius) {
-  var tempPosition = this.position;
-  var distance = tempPosition.subtract(objectRadius).length;
+  var distance = this.position.clone().subtract(objectPos).length();
+
   if ((distance - this.radius - objectRadius) <= 0) {
     return true;
   }

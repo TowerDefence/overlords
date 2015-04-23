@@ -1,11 +1,14 @@
 describe("Creep", function() {
-
-  var damage = bullet.damage;
-  var bulletSize = bullet.size;
+  var bullet;
+  var creep;
+  var damage;
+  var bulletSize;
 
   beforeEach(function() {
     creep = new Creep();
     bullet = new Bullet();
+    damage = bullet.damage;
+    bulletSize = bullet.size;
   });
 
   describe("move", function() {
@@ -33,16 +36,16 @@ describe("Creep", function() {
 
   describe("hasCollided", function() {
     it("should return true if creep has collided with a position", function() {
-      var objectPosition = new Victor(5,5);
+      creep.position = new Victor(5,5);
       var objectSize = 2;
-      var creepPosition = new Victor(5,5);
+      var objectPosition = new Victor(5,5);
       expect(creep.hasCollided(objectPosition,objectSize)).toEqual(true);
     });
 
     it("should return false if creep has not collided with a position", function() {
+      creep.position = new Victor(25,5);
       var objectPosition = new Victor(4,5);
       var objectSize = 2;
-      var creepPosition = new Victor(25,5);
       expect(creep.hasCollided(objectPosition,objectSize)).toEqual(false);
     });
   });
