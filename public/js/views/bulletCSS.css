@@ -1,11 +1,13 @@
-.html, .body {
+html, body {
   min-height: 100%;
 }
 
-.body {
-  background-color: grey;
+body {
+  /*background-color: grey;*/
   min-width: 100%;
+  background-image: url("../../images/dead-grass.JPG");
 }
+
 .bullet {
   max-width: 15px;
   min-height: 15px;
