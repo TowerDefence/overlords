@@ -1,10 +1,15 @@
 
 function Creep() {
-  this.position = new Victor(5,5);
+  this.position = new Victor(0,0);
   this.speed = new Victor(5,0);
   this.radius = 10;
   this.lives = 3;
-  this.alive = true;
+}
+
+Creep.prototype.generatePostion = function() {
+  var x = Math.floor((Math.random() * 10) + 1);
+  var y = Math.floor((Math.random() * 100) + 1);
+  this.position = new Victor(x,y)
 }
 
 Creep.prototype.move = function() {
@@ -12,8 +17,7 @@ Creep.prototype.move = function() {
 }
 
 Creep.prototype.getShot = function(damage) {
-  this.lives = this.lives - damage;
-  this.updateAlive();
+  this.lives -= damage;
 }
 
 Creep.prototype.hasCollided = function(objectPos,objectRadius) {
@@ -27,8 +31,6 @@ Creep.prototype.hasCollided = function(objectPos,objectRadius) {
   }
 }
 
-Creep.prototype.updateAlive = function() {
-  if (this.lives = 0) {
-    this.alive = false;
-  }
+Creep.prototype.isAlive = function() {
+  return (this.lives > 0);
 }
