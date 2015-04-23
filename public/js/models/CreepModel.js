@@ -1,13 +1,13 @@
 
 function Creep() {
   this.position = new Victor(0,0);
-  this.speed = new Victor(5,0);
+  this.speed = new Victor(1,0);
   this.radius = 10;
-  this.lives = 3;
+  this.lives = 10;
 }
 
 Creep.prototype.generatePostion = function() {
-  var x = Math.floor((Math.random() * 10) + 1);
+  var x = Math.floor((Math.random() * 2) + 1);
   var y = Math.floor((Math.random() * 100) + 1);
   this.position = new Victor(x,y)
 }
