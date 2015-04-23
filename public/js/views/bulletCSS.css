@@ -1,0 +1,12 @@
+.html, .body {
+  min-height: 100%;
+}
+.bullet {
+  max-width: 15px;
+  min-height: 15px;
+}
+
+.ruby {
+  max-width: 100%;
+  max-height: 100%;
+}
