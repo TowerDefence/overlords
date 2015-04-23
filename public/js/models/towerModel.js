@@ -6,7 +6,7 @@ function Tower(position, createBulletFunction){
   this.radius = 5;
   this.fireRateMs = 1000;
   this.closestTarget = {position: new Victor(Infinity, Infinity)};
-
+  this.hp = 5;
 
   setInterval(
     (function(self){
@@ -40,6 +40,10 @@ Tower.prototype = {
     if(this.isInRange(this.closestTarget)){
       this.createBulletFunction(this.position, this.closestTarget);
     }
+  },
+
+  isDead: function(){
+    return this.hp <= 0;
   }
 
 }

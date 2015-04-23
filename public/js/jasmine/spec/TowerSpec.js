@@ -45,7 +45,12 @@ describe("Tower", function() {
 
     });
 
+  });
 
+  it("can die", function() {
+    expect(tower.isDead()).toEqual(false);
+    tower.hp -= tower.hp;
+    expect(tower.isDead()).toEqual(true);
   });
 
 
