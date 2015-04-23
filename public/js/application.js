@@ -16,11 +16,14 @@ $(document).ready(function() {
     var towerPosition = new Victor(Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1));
     var direction = new Victor(Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1));
     var bullet = new Bullet(towerPosition,direction)
+    var bulletsCounter = counter
+      $('#'+bulletsCounter).css("top", bullet.position.x);
+      $('#'+bulletsCounter).css("left", bullet.position.y);
       setInterval(function(){
       bullet.updatePosition();
 
-      $('#'+counter).css("top", bullet.position.x);
-      $('#'+counter).css("left", bullet.position.y);
+      $('#'+bulletsCounter).css("top", bullet.position.x);
+      $('#'+bulletsCounter).css("left", bullet.position.y);
      }, 10);
   });
 });
