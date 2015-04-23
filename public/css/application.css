@@ -1,0 +1,7 @@
+.creep {
+  background-image: url("../images/creep.png");
+  background-size: 100%;
+  width:20px;
+  height:20px;
+  display: block;
+}
