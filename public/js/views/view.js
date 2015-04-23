@@ -9,8 +9,7 @@ View.prototype = {
   removeTower: function(id){
     $("button"+id).remove();
   },
-  addBullet: function(){
-    $('#'+bulletsCounter).css("top", bullet.position.x);
-    $('#'+bulletsCounter).css("left", bullet.position.y);
+  addBullet: function($bullet){
+    $("#game").append($bullet);
   }
 };

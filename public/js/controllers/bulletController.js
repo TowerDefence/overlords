@@ -4,8 +4,9 @@ function BulletController(){
 
 BulletController.prototype = {
   shootBullet: function(sourceLocation, targetLocation){
-    var bullet = new Bullet(sourceLocation, targetLocation, this.idCount++);
+    var model = new Bullet(sourceLocation, targetLocation, this.idCount++);
     $bulletElement  = model.generateBullet();
     view.addBullet($bulletElement);
+
   }
 }

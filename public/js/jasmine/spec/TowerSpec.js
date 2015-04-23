@@ -4,7 +4,6 @@ describe("Tower", function() {
   beforeEach(function() {
     position = new Victor(0,0);
     tower = new TowerModel(position, 1);
-
   });
 
   it("should be defined", function() {
