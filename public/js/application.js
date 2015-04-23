@@ -5,6 +5,6 @@ $(document).ready(function() {
   var bulletControl = new BulletController();
 
   var tower = towerControl.placeTower(location);
-  bulletControl.shootBullet(location, new Victor(100,100));
+  // bulletControl.shootBullet(location, new Victor(100,100));
 
 });
