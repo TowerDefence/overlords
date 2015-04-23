@@ -8,15 +8,15 @@ describe("Creep", function() {
   });
 
   it("should be able to move a creep", function() {
-    var current_x = creep.current_x;
+    var position = creep.position;
     creep.move();
-    expect(creep.current_x).toEqual(current_x + creep.speed);
+    expect(creep.position).toEqual(current_x + creep.speed);
   });
 
   it("should be able to get shot", function() {
     var lives = creep.lives;
     var damage = bullet.damage;
-    creep.get_shot();
+    creep.get_shot(damage);
     expect(creep.lives).toEqual(lives - damage);
   });
 
