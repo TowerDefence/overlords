@@ -51,6 +51,10 @@ $(document).ready(function() {
 
           $('#'+bulletsCounter).css("top", bullet.position.x);
           $('#'+bulletsCounter).css("left", bullet.position.y);
+          if ($('#'+bulletsCounter).offset() === $(".creep").offset()){
+            $('#'+bulletsCounter).remove();
+            $(".creep").remove();
+          }
          }, 10);
       });
 
