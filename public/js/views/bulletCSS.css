@@ -3,28 +3,16 @@ html, body {
 }
 
 body {
+  /*background-color: grey;*/
   min-width: 100%;
-  background-image: url("../images/grass.jpg");
+  background-image: url("../../images/dead-grass.JPG");
 }
-
 
 .bullet {
   max-width: 15px;
   min-height: 15px;
   position: absolute;
   -webkit-animation: spin 1s infinite linear;
-}
-
-
-.tower {
-  max-width: 30px;
-  min-height: 30px;
-  position: absolute;
-}
-
-.towerImage {
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .ruby {
@@ -35,12 +23,4 @@ body {
 @-webkit-keyframes spin {
     from {-webkit-transform:rotate(0deg);}
     to {-webkit-transform:rotate(360deg);}
-}
-
-.creep {
-  background-image: url("../images/creep.png");
-  background-size: 100%;
-  width:20px;
-  height:20px;
-  display: block;
 }
