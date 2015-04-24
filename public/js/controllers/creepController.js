@@ -2,13 +2,13 @@
 function CreepController() {
   this.creeps = [];
   this.numCreeps;
+  this.wavePosition;
 }
 
 CreepController.prototype.generateWave = function(numCreeps) {
   this.numCreeps = numCreeps;
   for (var i = 0; i <= numCreeps; i++) {
-    creep = new Creep();
-    creep.generatePostion();
+    var creep = new Creep();
     this.creeps.push(creep);
   }
 }
@@ -18,6 +18,7 @@ CreepController.prototype.moveCreeps = function() {
     var currentCreep = this.creeps[i];
     currentCreep.move();
   }
+  this.wavePosition = this.creeps[0].position.x;
 }
 
 
@@ -39,14 +40,20 @@ $(document).ready(function() {
   var creepView = new CreepView();
   creepView.renderWave(creepController.creeps);
 
-  var i = 0;
-  while (i < 500){
-    var func = function() {
-      creepController.removeDead();
-      creepController.moveCreeps();
-      creepView.renderWave(creepController.creeps);
+  var myVar = setInterval(function() { timeDelay() }, 300);
+
+  function timeDelay() {
+    //creepController.removeDead();
+    creepController.moveCreeps();
+    creepView.moveCreeps(creepController.creeps);
+    if (creepController.wavePosition >= 100) {
+      myStopFunction();
     }
-    i++;
-    setTimeout(func, 1000);
   }
+
+  function myStopFunction() {
+    clearInterval(myVar);
+  }
+
+
 });
