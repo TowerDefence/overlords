@@ -46,7 +46,7 @@ $(document).ready(function() {
     //creepController.removeDead();
     creepController.moveCreeps();
     creepView.moveCreeps(creepController.creeps);
-    if (creepController.wavePosition >= 100) {
+    if (creepController.wavePosition >= 2000) {
       myStopFunction();
     }
   }

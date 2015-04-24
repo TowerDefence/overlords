@@ -58,12 +58,12 @@ color: rgba (255,0,0,0.5); /* This gives us a red at 50% opacity */
 }
 
 .creep {
-  background-image: url("../images/creep.png");
+  background-image: url("../images/darcydevilicon.png");
   background-size: 100%;
-  width:20px;
-  height:20px;
+  width:80px;
+  height:80px;
   display: block;
   position:absolute;
 }
 
-#game {border:1px solid gray; margin:20px;height:500px;position:relative;}
+#game {border:1px solid gray; margin:20px;height:1000px;position:relative;}

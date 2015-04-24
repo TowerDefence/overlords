@@ -9,7 +9,7 @@ function Game(){
 Game.prototype = {
   spawnTowers : function(num){
     for (var i = 0; i < num; i++){
-      var position = new Victor(Math.random() * 100, Math.random() * 100);
+      var position = new Victor(Math.random() * 1000, Math.random() * 1000);
       this.placeTower(position);
     }
   },
