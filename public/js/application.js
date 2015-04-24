@@ -23,7 +23,7 @@ $(document).ready(function() {
       //creepController.removeDead();
       creepController.moveCreeps();
       creepView.moveCreeps(creepController.creeps);
-      if (creepController.wavePosition >= 100) {
+      if (creepController.wavePosition >= 2000) {
         myStopFunction();
       }
     }
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
         $('#game').append("<div class='bullet' id="+counter+"><img class='ruby' src='public/images/ruby.png'></div>")
 
-        var towerPosition = new Victor(Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1));
+        var towerPosition = new Victor(Math.floor((Math.random() * 800) + 1),Math.floor((Math.random() * 800) + 1));
         var direction = new Victor(Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1));
         var bullet = new Bullet(towerPosition,direction)
         var bulletsCounter = counter
