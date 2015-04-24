@@ -20,37 +20,31 @@ function TowerModel(position, id){
 
 TowerModel.prototype = {
   isInRange: function(target){
+    console.log("range to target:", this.rangeToTarget(target) )
     return this.rangeToTarget(target)  < this.range;
   },
 
   rangeToTarget: function(target){
-    return target.position.subtract(this.position).length();
+    return target.position.clone().subtract(this.position).length();
   },
 
   chooseClosestTarget: function(targets){
-    // for(var i = 0; i < targets.length; i++) {
-    //   var target = targets[i];
-    //   if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
-    //     this.closestTarget = target;
-    //   }
-    // }
-    // return this.closestTarget;
-    for (var targetKey in targets) {
-      console.log(targets);
-      if (targets.hasOwnProperty(targetKey)){
-        console.log(targetKey);
-        var target = targets[targetKey];
-        console.log(this.target);
-        if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
-          this.closestTarget = target;
-        }
+
+    for(var i = 0; i < targets.length; i++){
+      var target = targets[i];
+      if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
+        this.closestTarget = target;
+        console.log("Added new closest target: ", this.closestTarget);
       }
     }
+
   },
 
   fireAtTargetIfInRange: function(){
+    console.log("Aiming...");
     if(this.isInRange(this.closestTarget)){
-      return this.gun.shootBullet(this.postion, this.closestTarget.position);
+      console.log("Firing. Stand back.", this.position);
+      return this.gun.shootBullet(this.position.clone(), this.closestTarget.position.clone());
 
     }
   },

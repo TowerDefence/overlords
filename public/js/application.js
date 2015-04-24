@@ -8,7 +8,10 @@ $(document).ready(function() {
   // bulletControl.shootBullet(location, new Victor(100,100));
 
   game = new Game();
-  game.spawnTowers(5);
+  // game.spawnTowers(5);
+
+  game.placeTower(new Victor(400,400));
+  game.placeCreep(new Victor(405,405));
   game.runGame();
 
 

@@ -1,7 +1,7 @@
 function Game(){
-  this.towers = {};
-  this.bullets = {};
-  this.creeps = {};
+  this.towers = [];
+  this.bullets = [];
+  this.creeps = [];
   this.towerController = new TowerController();
   view = new View();
 }
@@ -9,30 +9,30 @@ function Game(){
 Game.prototype = {
   spawnTowers : function(num){
     for (var i = 0; i < num; i++){
-      var location = new Victor(Math.random() * 100, Math.random() * 100);
-      var newTower = this.towerController.placeTower(location);
-      this.towers[newTower.id] = newTower;
+      var position = new Victor(Math.random() * 100, Math.random() * 100);
+      this.placeTower(position);
     }
   },
 
+  placeTower: function(position){
+    var newTower = this.towerController.placeTower(position);
+    this.towers.push(newTower);
+  },
+
+  placeCreep: function(position){
+    var newCreep = {position: position, id: 1};
+    this.creeps.push(newCreep);
+  },
   fireBullets: function() {
 
-    // for (var towerKey in this.towers) {
-    //     if (this.towers.hasOwnProperty(towerKey)) {
-    //       var tower = this.towers[towerKey];
-    //       tower.chooseClosestTarget(this.creeps)
-    //       var bullet = tower.fireAtTargetIfInRange();
-    //       // console.log(bullet)
-    //       this.bullets[bullet.id] = bullet;
-    //     }
-    // }
-    eachKeyInObject(this.towers, function(tower){
+    for(var i = 0; i < this.towers.length; i++){
+      var tower = this.towers[i];
       tower.chooseClosestTarget(this.creeps);
       var bullet = tower.fireAtTargetIfInRange();
-      this.bullets[bullet.id] = bullet;
-    })
-
-
+      if(bullet){
+        this.bullets.push(bullet);
+      }
+    }
   },
 
   runGame: function() {
