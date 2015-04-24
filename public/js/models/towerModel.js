@@ -1,9 +1,10 @@
 
 function TowerModel(position, id){
+
   this.id = id
-  this.element = "<div class='tower' src=''> </div>"
+  this.$element = $("<div class='tower' src=''> </div>")
   this.position = position.clone();
-  this.range = 10;
+  this.range = 100;
   this.radius = 5;
   this.fireRateMs = 1000;
   this.closestTarget = {position: new Victor(Infinity, Infinity)};
@@ -36,11 +37,14 @@ TowerModel.prototype = {
     // }
     // return this.closestTarget;
     for (var targetKey in targets) {
+      console.log("targets")
       console.log(targets);
       if (targets.hasOwnProperty(targetKey)){
+        console.log("target key")
         console.log(targetKey);
         var target = targets[targetKey];
-        console.log(this.target);
+        console.log("target")
+        console.log(target);
         if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
           this.closestTarget = target;
         }
@@ -49,7 +53,9 @@ TowerModel.prototype = {
   },
 
   fireAtTargetIfInRange: function(){
+    console.log("in fire at target")
     if(this.isInRange(this.closestTarget)){
+                console.log("in fire if")
       return this.gun.shootBullet(this.postion, this.closestTarget.position);
 
     }

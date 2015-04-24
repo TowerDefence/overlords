@@ -8,19 +8,20 @@ $(document).ready(function() {
   // bulletControl.shootBullet(location, new Victor(100,100));
 
   game = new Game();
-  game.spawnTowers(5);
+  game.placeTower(new Victor(100,100));
+  game.placeCreep(new Victor(110,110));
   game.runGame();
 
 
 });
 
-function eachKeyInObject(obj, func){
-  for(key in obj){
-    if(obj.hasOwnProperty(key)){
-      var value = obj[key];
-      func(value);
-    }
-  }
-}
+// function eachKeyInObject(obj, func){
+//   for(key in obj){
+//     if(obj.hasOwnProperty(key)){
+//       var value = obj[key];
+//       func(value);
+//     }
+//   }
+// }
 
 
