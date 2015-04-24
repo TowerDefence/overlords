@@ -34,26 +34,26 @@ CreepController.prototype.removeDead = function() {
 }
 
 //temporary game controller logic
-$(document).ready(function() {
-  var creepController = new CreepController();
-  creepController.generateWave(10);
-  var creepView = new CreepView();
-  creepView.renderWave(creepController.creeps);
+// $(document).ready(function() {
+//   var creepController = new CreepController();
+//   creepController.generateWave(10);
+//   var creepView = new CreepView();
+//   creepView.renderWave(creepController.creeps);
 
-  var myVar = setInterval(function() { timeDelay() }, 300);
+//   var myVar = setInterval(function() { timeDelay() }, 300);
 
-  function timeDelay() {
-    //creepController.removeDead();
-    creepController.moveCreeps();
-    creepView.moveCreeps(creepController.creeps);
-    if (creepController.wavePosition >= 100) {
-      myStopFunction();
-    }
-  }
+//   function timeDelay() {
+//     //creepController.removeDead();
+//     creepController.moveCreeps();
+//     creepView.moveCreeps(creepController.creeps);
+//     if (creepController.wavePosition >= 100) {
+//       myStopFunction();
+//     }
+//   }
 
-  function myStopFunction() {
-    clearInterval(myVar);
-  }
+//   function myStopFunction() {
+//     clearInterval(myVar);
+//   }
 
 
-});
+// });

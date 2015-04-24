@@ -26,7 +26,7 @@ content: “Ruby Domination”;
 position: absolute;
 left: 8px; top: 6px; /* These are aligning it to be where we’d like relative to the last word */
 color: rgba (255,0,0,0.5); /* This gives us a red at 50% opacity */
-}*/
+}
 
 
 .bullet {
@@ -59,12 +59,13 @@ color: rgba (255,0,0,0.5); /* This gives us a red at 50% opacity */
 }
 
 .creep {
-  background-image: url("../images/creep.png");
+  background-image: url("../images/darcydevilicon.png");
   background-size: 100%;
-  width:20px;
-  height:20px;
+  width:30px;
+  height:30px;
   display: block;
   position:absolute;
 }
 
-#game {border:1px solid gray; margin:20px;height:500px;position:relative;}
+/*#game {border:1px solid gray; margin:20px;height:500px;position:relative;}
+*/
