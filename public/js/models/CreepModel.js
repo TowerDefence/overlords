@@ -3,7 +3,7 @@ function Creep() {
   this.generatePosition();
   this.speed = new Victor(5,0);
   this.radius = 10;
-  this.lives = 10;
+  this.lives = 1;
   this.$element = $('<div class="creep"></div>');
 }
 

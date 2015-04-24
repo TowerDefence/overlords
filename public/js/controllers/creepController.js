@@ -13,6 +13,16 @@ CreepController.prototype.generateWave = function(numCreeps) {
   }
 }
 
+CreepController.prototype.creepsHaveCollided = function(objectPos,objectRadius) {
+  for (var i = 0; i <= this.numCreeps; i++) {
+    var currentCreep = this.creeps[i];
+    if (currentCreep.hasCollided(objectPos,objectRadius) {
+      //temp hardcoded damage
+      currentCreep.getShot(1);
+    }
+  }
+}
+
 CreepController.prototype.moveCreeps = function() {
   for (var i = 0; i <= this.numCreeps; i++) {
     var currentCreep = this.creeps[i];
@@ -26,8 +36,9 @@ CreepController.prototype.removeDead = function() {
   for (var i = 0; i <= this.numCreeps; i++) {
     var currentCreep = this.creeps[i];
     if (!currentCreep.isAlive()) {
-      this.creeps.splice( i, 1 );
-      this.numCreeps -= 1;
+      //this.creeps.splice( i, 1 );
+      //this.numCreeps -= 1;
+      creeps[i].$element.remove();
     };
   }
 
