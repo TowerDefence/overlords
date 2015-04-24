@@ -1,13 +1,14 @@
 
 function Creep() {
-  this.position = new Victor(0,0);
+  this.generatePosition();
   this.speed = new Victor(5,0);
   this.radius = 10;
-  this.lives = 3;
+  this.lives = 10;
+  this.$element = $('<div class="creep"></div>');
 }
 
-Creep.prototype.generatePostion = function() {
-  var x = Math.floor((Math.random() * 10) + 1);
+Creep.prototype.generatePosition = function() {
+  var x = Math.floor((Math.random() * 2) + 1);
   var y = Math.floor((Math.random() * 100) + 1);
   this.position = new Victor(x,y)
 }

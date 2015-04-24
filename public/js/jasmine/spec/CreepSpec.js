@@ -14,7 +14,7 @@ describe("Creep", function() {
 
   describe("move", function() {
     it("should be able to move a creep", function() {
-      creep.generatePostion();
+      creep.generatePosition();
       var position = creep.position;
       creep.move();
       expect(creep.position).toEqual(position.add(creep.speed));
