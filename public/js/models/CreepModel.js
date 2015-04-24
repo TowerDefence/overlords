@@ -9,7 +9,7 @@ function Creep() {
 
 Creep.prototype.generatePosition = function() {
   var x = Math.floor((Math.random() * 2) + 1);
-  var y = Math.floor((Math.random() * 100) + 1);
+  var y = Math.floor((Math.random() * 1000) + 1);
   this.position = new Victor(x,y)
 }
 

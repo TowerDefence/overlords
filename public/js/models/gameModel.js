@@ -3,6 +3,7 @@ function Game(){
   this.bullets = [];
   this.creeps = [];
   this.towerController = new TowerController();
+  this.creepController = new CreepController();
   view = new View();
 }
 
@@ -17,17 +18,38 @@ Game.prototype = {
   placeTower: function(position){
     var newTower = this.towerController.placeTower(position);
     this.towers.push(newTower);
+
+
   },
 
   placeCreep: function(position){
-    var newCreep = {position: position, id: 1};
-    this.creeps.push(newCreep);
+    // this.creeps.push(newCreep);
+
+    // var creepController = new CreepController();
+    // creepController.generateWave(10);
+    // var creepView = new CreepView();
+    // creepView.renderWave(creepController.creeps);
+
+    // var myVar = setInterval(function() { timeDelay() }, 300);
+
+    // function timeDelay() {
+    //   //creepController.removeDead();
+    //   creepController.moveCreeps();
+    //   creepView.moveCreeps(creepController.creeps);
+    //   if (creepController.wavePosition >= 2000) {
+    //     myStopFunction();
+    //   }
+    // }
+
+    // function myStopFunction() {
+    //   clearInterval(myVar);
+    // }
   },
   fireBullets: function() {
 
     for(var i = 0; i < this.towers.length; i++){
       var tower = this.towers[i];
-      tower.chooseClosestTarget(this.creeps);
+      tower.chooseClosestTarget(this.creepController.creeps);
       var bullet = tower.fireAtTargetIfInRange();
       if(bullet){
         this.bullets.push(bullet);

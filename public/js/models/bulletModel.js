@@ -4,8 +4,6 @@ function Bullet(towerPosition, direction, id) {
   this.id = id;
   this.size = 1;
   this.position = towerPosition.clone();
-  console.log("Bullet position")
-  console.log(this.position);
   this.direction = direction.clone().normalize();
   this.damage = 1;
   this.$div = {};
@@ -19,14 +17,14 @@ function Bullet(towerPosition, direction, id) {
 
 
 Bullet.prototype.updatePosition = function() {
-  this.position.add(this.direction);
+  this.position.add(this.direction.clone().normalize());
   this.setDivPosition();
 
 };
 
 Bullet.prototype.setDivPosition = function(){
-  this.$div.css("top", this.position.x);
-  this.$div.css("left", this.position.y);
+  this.$div.css("top", this.position.y);
+  this.$div.css("left", this.position.x);
 }
 
 Bullet.prototype.generateBullet = function(){

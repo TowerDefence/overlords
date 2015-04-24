@@ -10,7 +10,7 @@ CreepView.prototype.renderWave = function(creeps) {
     var y = creeps[i].position.y;
     var $currentCreep = creeps[i].$element;
     $currentCreep.css({
-      "top": y+"%",
+      "top": y,
       "left": x
     })
     $container.append($currentCreep);
@@ -24,7 +24,7 @@ CreepView.prototype.moveCreeps= function(creeps) {
 
     var $currentCreep = creeps[i].$element;
     $currentCreep.css({
-      "top": y+"%",
+      "top": y,
       "left": x
     })
   }

@@ -6,7 +6,7 @@ function TowerModel(position, id){
   this.range = 500;
   this.radius = 5;
   this.fireRateMs = 1000;
-  this.closestTarget = {position: new Victor(Infinity, Infinity)};
+  this.closestTarget = {position: new Victor(4000, 4000)};
   this.hp = 5;
   this.gun = new BulletController();
 
@@ -50,8 +50,8 @@ TowerModel.prototype = {
 
   generateTower: function(){
     var $div = $("<div class='tower'><img class='towerImage' src='./public/images/joshua.png'></div>").attr('id', "tower"+this.id);
-    $div.css("top", this.position.x);
-    $div.css("left", this.position.y);
+    $div.css("top", this.position.y);
+    $div.css("left", this.position.x);
     return $div;
   }
 
