@@ -49,7 +49,7 @@ TowerModel.prototype = {
   },
 
   generateTower: function(){
-    var $div = $("<div class='tower'><img class='towerImage' src='./public/images/ben-cropped.png'></div>").attr('id', "tower"+this.id);
+    var $div = $("<div class='tower'><img class='towerImage' src='./public/images/joshua.png'></div>").attr('id', "tower"+this.id);
     $div.css("top", this.position.x);
     $div.css("left", this.position.y);
     return $div;

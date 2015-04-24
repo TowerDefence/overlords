@@ -7,6 +7,26 @@ body {
   background-image: url("../images/grass.jpg");
 }
 
+header {
+  font-family: 'Trade Winds', cursive;
+  text-align: center;
+  font-size: 4em;
+  text-shadow: 3px 3px 3px #0A0A0A;
+}
+
+h1 {
+display: inline;
+position: relative;
+letter-spacing: -5px;
+color: rgba(0,0,255,0.5);
+}
+
+h1:after {
+content: “Ruby Domination”;
+position: absolute;
+left: 8px; top: 6px; /* These are aligning it to be where we’d like relative to the last word */
+color: rgba (255,0,0,0.5); /* This gives us a red at 50% opacity */
+}
 
 .bullet {
   max-width: 15px;
@@ -17,8 +37,8 @@ body {
 
 
 .tower {
-  max-width: 30px;
-  min-height: 30px;
+  max-width: 80px;
+  min-height: 80px;
   position: absolute;
 }
 
