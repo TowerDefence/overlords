@@ -38,7 +38,6 @@ describe("Tower", function() {
       targets.push({position: closest}, {position: mediumDistance}, {position: furthest});
 
       tower.chooseClosestTarget(targets);
-      console.log(tower.closestTarget);
 
       expect(tower.closestTarget.position).toEqual(closest);
 

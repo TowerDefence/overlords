@@ -4,6 +4,8 @@ function Bullet(towerPosition, direction, id) {
   this.id = id;
   this.size = 1;
   this.position = towerPosition.clone();
+  console.log("Bullet position")
+  console.log(this.position);
   this.direction = direction.clone().normalize();
   this.damage = 1;
   this.$div = {};

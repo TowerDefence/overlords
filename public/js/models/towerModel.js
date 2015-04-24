@@ -8,6 +8,7 @@ function TowerModel(position, id){
   this.fireRateMs = 1000;
   this.closestTarget = {position: new Victor(Infinity, Infinity)};
   this.hp = 5;
+  this.gun = new BulletController();
 
   setInterval(
     (function(self){
@@ -27,18 +28,29 @@ TowerModel.prototype = {
   },
 
   chooseClosestTarget: function(targets){
-    for(var i = 0; i < targets.length; i++) {
-      var target = targets[i];
-      if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
-        this.closestTarget = target;
+    // for(var i = 0; i < targets.length; i++) {
+    //   var target = targets[i];
+    //   if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
+    //     this.closestTarget = target;
+    //   }
+    // }
+    // return this.closestTarget;
+    for (var targetKey in targets) {
+      console.log(targets);
+      if (targets.hasOwnProperty(targetKey)){
+        console.log(targetKey);
+        var target = targets[targetKey];
+        console.log(this.target);
+        if(this.rangeToTarget(target) < this.rangeToTarget(this.closestTarget)){
+          this.closestTarget = target;
+        }
       }
     }
-    return this.closestTarget;
   },
 
   fireAtTargetIfInRange: function(){
     if(this.isInRange(this.closestTarget)){
-      new Bullet(this.position, this.closestTarget);
+      return this.gun.shootBullet(this.postion, this.closestTarget.position);
 
     }
   },
@@ -48,7 +60,7 @@ TowerModel.prototype = {
   },
 
   generateTower: function(){
-    var $div = $("<div class='tower'><img class='towerImage' src='./public/images/darcy.jpg'></div>").attr('id', "tower"+this.id);
+    var $div = $("<div class='tower'><img class='towerImage' src='./public/images/ben-cropped.png'></div>").attr('id', "tower"+this.id);
     $div.css("top", this.position.x);
     $div.css("left", this.position.y);
     return $div;

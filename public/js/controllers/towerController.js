@@ -1,4 +1,4 @@
-function TowerController(location, id){
+function TowerController(){
   this.idCount = 0;
 
 }

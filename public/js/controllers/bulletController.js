@@ -7,6 +7,6 @@ BulletController.prototype = {
     var model = new Bullet(sourceLocation, targetLocation, this.idCount++);
     $bulletElement  = model.generateBullet();
     view.addBullet($bulletElement);
-
+    return model;
   }
 }
